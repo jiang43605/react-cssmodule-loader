@@ -14,7 +14,28 @@
  - 如果要添加css模块支持，仅需更改文件名（为'module.xxx'）
 
 ### 使用：
-你可以随意使用，最后总能得到你想要的结果！另外，如果你同时引入了多个模块，则后面的模块总会覆盖前面的值。 
+
+安装：`npm i react-cssmodule-loader`
+
+webpack配置：
+```js
+...
+{
+    test: /\.js(x)?$/,
+    use: [
+             {
+                 loader: 'babel-loader',
+             },
+             {
+                 // 注意：该插件必须在最后一个
+                 loader: 'react-cssmodule-loader'
+             }
+    ]
+}
+...
+```
+
+然后你可以随意使用，最后总能得到你想要的结果！另外，如果你同时引入了多个模块，则后面的模块总会覆盖前面的值。 
 ```js
 <div className="card top-margin"><div>        
 <div className={"card top-margin"}><div>      
