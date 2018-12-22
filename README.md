@@ -5,7 +5,7 @@
 ### 功能：
 以往要做css的模块化，需要满足两个条件：
  - 在import阶段，需要显式的指定一个导出名称：import styles from 'index.module.less'
- - 无法直接在className中指定对应的css名称，需要调用：<div className={style.youCss}></div>
+ - 无法直接在className中指定对应的css名称，需要调用：`<div className={style.youCss}></div>`
 
 这很繁琐！使用本loader可自动帮你完成这些步骤，你可仍然按照以前的习惯编码！
 
