@@ -32,6 +32,22 @@ webpack配置：
              }
     ]
 }
+
+...
+{
+    test: /\.module.(less|css|sass)$/,
+    loader: [
+        ...
+        {
+            loader: 'css-loader', 
+            options: {
+                // 注意：module.xxx下务必打开模块化功能 
+                modules: true
+            }
+        },
+       ...
+    ]
+}
 ...
 ```
 
@@ -49,6 +65,11 @@ import styles1 from 'index.module.less';
 import styles2 from 'app.module.css';
 import { left, right } from 'other.module.less';
 import 'main.module.sass';
+
+// 可兼容原始代码！老的无需变更！
+import 'normal.less'
+import 'normal.css'
+import 'normal.sass'
 
 <div className={styles1.sider + ' ' + styles2.top + 'main-css'}></div>
 <div className={ `${left} ${right}` }></div>
