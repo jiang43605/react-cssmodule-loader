@@ -5,7 +5,7 @@
 ### 功能：
 以往要做css的模块化，需要满足两个条件：
  - 在import阶段，需要显式的指定一个导出名称：import styles from 'index.module.less'
- - 无法直接在className中指定对应的css名称，需要调用：<div className={style.youCss}></div>
+ - 无法直接在className中指定对应的css名称，需要调用：`<div className={style.youCss}></div>`
 
 这很繁琐！使用本loader可自动帮你完成这些步骤，你可仍然按照以前的习惯编码！
 
@@ -14,7 +14,44 @@
  - 如果要添加css模块支持，仅需更改文件名（为'module.xxx'）
 
 ### 使用：
-你可以随意使用，最后总能得到你想要的结果！另外，如果你同时引入了多个模块，则后面的模块总会覆盖前面的值。 
+
+安装：`npm i react-cssmodule-loader`
+
+webpack配置：
+```js
+...
+{
+    test: /\.js(x)?$/,
+    use: [
+             {
+                 loader: 'babel-loader',
+             },
+             {
+                 // 注意：该插件必须在最后一个
+                 loader: 'react-cssmodule-loader'
+             }
+    ]
+}
+
+...
+{
+    test: /\.module.(less|css|sass)$/,
+    loader: [
+        ...
+        {
+            loader: 'css-loader', 
+            options: {
+                // 注意：module.xxx下务必打开模块化功能 
+                modules: true
+            }
+        },
+       ...
+    ]
+}
+...
+```
+
+然后你可以随意使用，最后总能得到你想要的结果！另外，如果你同时引入了多个模块，则后面的模块总会覆盖前面的值。 
 ```js
 <div className="card top-margin"><div>        
 <div className={"card top-margin"}><div>      
@@ -28,6 +65,11 @@ import styles1 from 'index.module.less';
 import styles2 from 'app.module.css';
 import { left, right } from 'other.module.less';
 import 'main.module.sass';
+
+// 可兼容原始代码！老的无需变更！
+import 'normal.less'
+import 'normal.css'
+import 'normal.sass'
 
 <div className={styles1.sider + ' ' + styles2.top + 'main-css'}></div>
 <div className={ `${left} ${right}` }></div>
