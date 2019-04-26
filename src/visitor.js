@@ -66,7 +66,7 @@ class ParseVisitor {
         if (
             [
                 '.module.less',
-                '.module.sass',
+                '.module.scss',
                 '.module.css'
             ].every(_ => !libName.endsWith(_))
         ) return;
@@ -95,7 +95,7 @@ class ParseVisitor {
             !babelTypes.isImportNamespaceSpecifier(importTypes[0])
         ) {
             // const errMsg = codeFrameColumns(content, { ...importTypes[0].loc }, {
-            //     message: "'css/less/sass'引入必须采用默认的引入方式！eg: import styles from 'index.less'"
+            //     message: "'css/less/scss'引入必须采用默认的引入方式！eg: import styles from 'index.less'"
             // });
 
             // throw new Error(errMsg);

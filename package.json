@@ -1,6 +1,6 @@
 {
     "name": "react-cssmodule-loader",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "简化css模块在react中应用",
     "main": "src/index.js",
     "scripts": {
