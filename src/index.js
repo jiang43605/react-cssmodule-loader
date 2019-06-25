@@ -27,7 +27,9 @@ module.exports = function (content) {
             "decorators-legacy",
             "classProperties",
             "objectRestSpread",
-            "asyncGenerators"
+            "asyncGenerators",
+            "typescript",
+            "dynamicImport"
         ]
     });
 
