@@ -16,7 +16,7 @@ module.exports = function (content) {
 
   if (options && options.test) {
     if (options.test(resource) === false) {
-      return;
+      return content;
     }
   } else if (/\/node_modules\//g.test(resource)) {
     return content;
